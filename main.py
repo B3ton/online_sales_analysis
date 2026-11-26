@@ -1,3 +1,5 @@
+import random
+
 from product import Product
 from product_manager import ProductManager
 from cart import Cart
@@ -11,8 +13,8 @@ def main():
     manager.add_product(Product("Bluetooth Slusalice", 89.99, 10))
 
     cart = Cart()
-    cart.add_to_cart(Product("Laptop", 899.99, 1))
-    cart.add_to_cart(Product("Slusalice", 79.99, 2))
+    for product in random.sample(manager.products, 3):
+        cart.add_to_cart(product)
 
     print("\nSadrzaj korpe:")
     cart.display_cart()
